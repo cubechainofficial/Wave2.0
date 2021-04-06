@@ -9,6 +9,7 @@ import (
 	 "../core"
 )
 
+
 var echo=fmt.Println
 var Configure config.Configuration
 
@@ -23,11 +24,9 @@ func init() {
 	gob.Register(map[string]string{})
 }
 
-
 func main() {
 	ch:=core.CubeHeight()
 	ch2:=core.GetCubeHeight3()
-	//ch3,_:=strconv.Atoi(ch2)
 
 	echo(ch)
 	echo(ch2)
@@ -52,11 +51,4 @@ func main() {
 			c.DownloadingRpc3()
 		}
 	}
-
 }
-
-
-
-
-
-

@@ -180,17 +180,6 @@ func (n *BSTNode) Search(h string,cnt int) (interface{},int) {
 }
 
 func (n *BSTNode) Convert(txArr *[]TxData) {
-
-	
-	/*
-	if n.Left!=nil {
-		formatString(n.Left.Val)
-	} else if n.Right!=nil {
-		formatString(n.Right.Val)
-	}
-	*/
-
-
 	if n.Left!=nil {
 		LeftData,_:=n.Left.Val.(TxData)
 		*txArr=append(*txArr,LeftData)

@@ -37,52 +37,20 @@ func init() {
 	gob.Register(&core.TxData{})
 	gob.Register(&core.TxBST{})
 	gob.Register(map[string]string{})
-	//echo(core.GenBlock)
 }
 
 
 func main() {
-
 	txpoolcheck(135195,1)
-	//blockcheck(6916,1)
-	//blockhashcheck(6916,1)
-	//cubecheck(7013)
-	//blockprvhash(7221,1)
-	//checking()
-	//checkingdir()
-	//blockread(5008,2)
-	//checkStatic()
-	//checks()
-	//cubedown(8396)
-	//cubedown(8396)
-	//cubecast(10452)
-	//cubeHeader(9000)
-	//cubedownload(10452)
-	//makecbs()
-	//cubeconfirm(2617)
-	//newhash()
-	//repair(2)
-	//filesizeCheck()
-	//repairchk(3200)
-	//checkStatAddr()
-	//checkcubesize(22796)
-	//getblocktx(23546,2)
-	//check()
-	//r:=GetStatisticAddr("CPNpEb8jgwTS51f68DJsUu51WZV4HNTM4u")
-	//echo(r)
 }
 
 
 
 func check() {
-	
 	gBlock:=core.CBlockRead(23546,2)
-	//echo (gBlock)
 	gBlock.PrintHead()
 	core.BlockRead(23546,2,&gBlock)
-	//echo (gBlock)
 	gBlock.PrintHead()
-
 }
 
 
@@ -107,19 +75,11 @@ func checkcubesize(cubeno int) {
 }
 
 func checkStatAddr() {
-
-	//addr:="CUQLwVMrsiLwFMCJ5M3czS2KZXxHjcTM1R"
 	addr:="CcXFizxhCykQ5M2vuCmTnoK86rJERfyGye"
-	//echo (core.GetBalance(addr))
-
-	//echo (core.GetStatisticAddr(addr))
-	//echo (GetStatisticAddr(addr))
 	aStatistic:=make(map[string]core.StatisticData)
-
 	g:=core.GetStaticData(3499,aStatistic)
 
 	echo (g)
-
 	echo (g[addr])
 }
 
@@ -258,7 +218,6 @@ func checking() {
 	}
 }
 
-
 func checkingdir() {
 	path:="./cc3"
 	core.MakePath(path)
@@ -308,19 +267,8 @@ func blockhashcheck(cubeno int,blockno int) {
 	echo(hashg)
 }
 
-
-
-
-
 func txpoolcheck(cubeno int,blockno int) string {
 	result:=core.NodeSend("txpool","0&cubeno="+strconv.Itoa(cubeno)+"&blockno="+strconv.Itoa(blockno))
 	echo("cubeno="+strconv.Itoa(cubeno)+"&blockno="+strconv.Itoa(blockno)+"\n",result)
 	return result
 }
-
-
-
-
-
-
-

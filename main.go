@@ -10,12 +10,11 @@ import (
 	 "./core"
 )
 
+
 var echo=fmt.Println
 var Configure config.Configuration
-var mstr="miningtesting!!..."
+var mstr="cubemining!!..."
 var	addr="CLQUKEdCeWmPzAmyJdHzo9cTBrq2JCBbPC"
-//var	addr="CQUMoMjngW9tBZf7vkVeuGJ4iyTxcnWXDk"
-//var	addr="CQqvmQrQb4wt9CzEspYSWhTETt5nkRCo7Q"
 
 
 func init() {
@@ -40,65 +39,12 @@ func init() {
 	gob.Register(&core.TxData{})
 	gob.Register(&core.TxBST{})
 	gob.Register(map[string]string{})
-	//echo(core.GenBlock)
 }
 
 
 func main() {
-	//cubemining3()
-	//quickmining()
-	//blockscan()
-	//blockscan2()
-	//api_CubeBalance()
-	//txCheck()
-	//Genfile()
-
-	//api_GetIndex()
-
-
-	//cubemining3()
-	
-	
 	go quickmining2()
 	core.ServerRun()
-
-
-	
-
-	/*
-	cube.GetPrevHash()
-
-
-	hashnip:=core.NodeSend("cubehash","0&cubeno=13200")
-	echo ("hash")
-	echo (hashnip)
-
-	echo ("")
-	api_CubeBalance()
-	api_Balance()
-	echo ("")
-	api_GetIndex()
-	echo ("")
-	api_GetCount()
-	echo ("")
-	echo ("")
-	//api_GetList()
-	//api_GetListDetail()
-	//core.ServerRun()
-	//api_GetBlock()
-	api_GetBlockTx()
-	echo ("")
-	echo ("")
-	blockscan3(1)
-	*/
-	//cubeIndexing(1)
-	//cubeStatistic(2)
-	//core.AllIndexing(9)
-	//core.CubeStatistic(1)
-	//core.AllStatistic(9)
-	//core.GetIndexing()
-	//core.GetStatistic()
-
 }
 
 func quickmining() {

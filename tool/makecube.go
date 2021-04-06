@@ -36,14 +36,11 @@ func init() {
 	gob.Register(&core.TxData{})
 	gob.Register(&core.TxBST{})
 	gob.Register(map[string]string{})
-	//echo(core.GenBlock)
 }
 
 
 func main() {
-
 	cubemake(24544)
-
 }
 
 

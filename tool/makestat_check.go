@@ -42,7 +42,6 @@ func init() {
 }
 
 func main() {
-	//addr:="CW4dPvQ24RGgMk8NKEj6F1UkYka9sxYTdM"
 	addr:="CUqZZeBnjyKuAyWmkjooRT13zFpDL1fiR7"
 	p:=GetStatisticAddrHere(addr)
 	echo(p)
@@ -67,7 +66,6 @@ func StatisticReadHere(aStatistic *core.TxStatistic) {
 		}	
 	}
 	pathfile:=path+filepathSeparator+"Statistic.cbs"
-	//pathfile:=path+filepathSeparator+"Statistic100000.cbs"
 	if core.DirExist(pathfile) {
 		err:=core.FileRead(pathfile,aStatistic)
 		core.Err(err,0)	

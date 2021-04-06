@@ -9,10 +9,10 @@ import (
 	 "../core"
 )
 
+
 var echo=fmt.Println
 var Configure config.Configuration
 var	addr="CLQUKEdCeWmPzAmyJdHzo9cTBrq2JCBbPC"
-
 
 func init() {
 	Configure=config.LoadConfiguration("../config/cubechain.conf")
@@ -36,16 +36,11 @@ func init() {
 	gob.Register(&core.TxData{})
 	gob.Register(&core.TxBST{})
 	gob.Register(map[string]string{})
-	//echo(core.GenBlock)
 }
-
 
 func main() {
-
 	cubecheck();
-
 }
-
 
 func cubecheck() {
 	var c core.Cube
@@ -62,12 +57,8 @@ func cubecheck() {
 	echo(result)
 	echo(cresult)
 	
-	
-	
 	echo(c.CHash)
 	echo(c.Nonce)
-	
-
 }
 
 

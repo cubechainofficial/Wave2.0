@@ -608,8 +608,6 @@ func GetBlockAll(cubeno int) string {
 	return result
 }
 
-
-
 func GetBlockBase(cubeno int,blockno int) string {
 	var iBlock Block
 	err:=BlockRead(cubeno,blockno,&iBlock)
@@ -733,8 +731,6 @@ func GetBlockTxHash(cubeno int,blockno int,addr string,u_addr string,coin float6
 	result=strings.Join(res,",")
 	return result
 }
-
-
 
 func GetCubeTx(cubeno int) string {
 	result:=""

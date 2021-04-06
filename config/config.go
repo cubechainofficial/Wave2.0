@@ -6,6 +6,7 @@ import (
     "fmt"
 )
 
+
 type Configuration struct {
 	/* Network/Node */
 	Network string `json:"network"`

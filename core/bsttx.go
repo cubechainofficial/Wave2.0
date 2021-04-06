@@ -2,10 +2,10 @@ package core
 
 import (
 	"fmt"
-//	"log"
 	"bytes"
 	"encoding/gob"
 )
+
 
 type TxBST struct {
 	Coin		*BST
@@ -29,8 +29,6 @@ type txData struct {
 type txContract struct {
 }
 
-//var txbst int
-//var txbst TxBST
 
 func (td *txCoin) txDefine() {}
 func (td *txPoh) txDefine() {}
@@ -209,8 +207,6 @@ func (tb *TxBST) Insert(treeData interface{}) {
 
 func TreeDeserialize(data []byte) TxBST {
 	var object TxBST
-	//var TGdata TxData
-	//gob.Register(TGdata)
 	decoder:=gob.NewDecoder(bytes.NewReader(data))
 	err:=decoder.Decode(&object)
 	if err != nil {
@@ -247,8 +243,6 @@ func TreePrint() {
 
 	decho(str)
 	decho(c)
-
-
 }
 
 func (txbst TxBST) TreePrint2() {

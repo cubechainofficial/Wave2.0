@@ -46,18 +46,15 @@ func main() {
 	core.MakeStat(filepath1)
 
 	file0:=filepath1+"/special/"+"Statistic.cbs"
-	//file1:=filepath1+"/special/"+"Statistic.cbs"
 	file2:=filepath1+"/special/"+"Statistic2.cbs"
 	file3:=filepath1+"/special/"+"Statistic3.cbs"
 	file4:=filepath1+"/special/"+"Statistic4.cbs"
 	file5:=filepath1+"/special/"+"Statistic5.cbs"
 
-
 	core.FileCopy(file0,file2)
 	core.FileCopy(file0,file3)
 	core.FileCopy(file0,file4)
 	core.FileCopy(file0,file5)
-
 
 	filepath1="/data/bdata"
 	file11:=filepath1+"/special/"+"Statistic.cbs"
@@ -71,10 +68,6 @@ func main() {
 	core.FileCopy(file0,file13)
 	core.FileCopy(file0,file14)
 	core.FileCopy(file0,file15)
-
-
-	//addr:="CcXFizxhCykQ5M2vuCmTnoK86rJERfyGye"
-	//core.MakeStatAddr(filepath1,addr) 
 }
 
 

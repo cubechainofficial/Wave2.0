@@ -4,9 +4,9 @@ import (
 	"crypto/sha256"
 	"crypto/sha512"
 	"encoding/hex"
-	//"strings"
 	"strconv"
 )
+
 
 func setHashV(str interface{}) string {
 	h:=sha256.New()

@@ -14,6 +14,7 @@ import (
 	"time"
 )
 
+
 type Request struct {
 	Callno		int			`json:"callno"`
 	Com			string		`json:"com"`
@@ -319,7 +320,6 @@ func SyncDownload(idx int) {
 	filep,_:=DownloadFile(path,url)
 	if filep>"" {
  		echo("Download Cubefile.["+strconv.Itoa(idx)+"]")
-		// Cube Convert file : Block, Cubing
 	} else {
  		echo("Download failure.["+strconv.Itoa(idx)+"]")
 	}

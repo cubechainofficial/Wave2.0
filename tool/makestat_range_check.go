@@ -10,6 +10,7 @@ import (
 	 "../core"
 )
 
+
 var echo=fmt.Println
 var Configure config.Configuration
 var	addr="CLQUKEdCeWmPzAmyJdHzo9cTBrq2JCBbPC"
@@ -39,9 +40,6 @@ func init() {
 	gob.Register(&core.TxBST{})
 	gob.Register(map[string]string{})
 }
-
-
-
 
 func main() {
 	sstart:=os.Args[1]

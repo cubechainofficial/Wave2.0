@@ -375,17 +375,6 @@ func CubeStatistic_pp00(cubeno int) [4][]string {
 					} else {
 						dStatistic[1]=append(dStatistic[1],v.To)
 					}
-					/*
-					dStatistic[0]=append(dStatistic[0],v.From)
-					dStatistic[0]=append(dStatistic[0],v.To)
-					dStatistic[3]=append(dStatistic[3],GetBalance(v.From))
-					dStatistic[3]=append(dStatistic[3],GetBalance(v.To))
-
-					dStatistic[2]=append(dStatistic[2],GetBalance(v.From))
-					dStatistic[2]=append(dStatistic[2],GetBalance(v.To))
-					dStatistic[3]=append(dStatistic[3],GetBalance(v.From))
-					dStatistic[3]=append(dStatistic[3],GetBalance(v.To))
-					*/
 				}
 			}
 		}
@@ -522,11 +511,6 @@ func CubeStatisticToStr(addr string) string {
 	result:=""
 	pos:="F"
 
-	//rbalance:=GetBalanceRS(addr,"To")
-	//sbalance:=GetBalanceRS(addr,"From")
-	//txcnt:=GetTxCount(addr)
-
-
 	rbalance,sbalance,txcnt:=GetStaticValue(addr)
 	balance:=rbalance-sbalance
 	balance=math.Round(balance*100000000)/100000000
@@ -608,8 +592,6 @@ func addEscrow() Block {
 
 func Serialize(object interface{}) []byte {
 	var buff bytes.Buffer
-	//var Tdata TxData
-	//gob.Register(Tdata)
 	enc := gob.NewEncoder(&buff)
 	err := enc.Encode(object)
 	if err != nil {
@@ -711,25 +693,3 @@ func addBlock(data []byte,Cubenum int) Block{
 	return block
 }
 
-
-
-/*
-func EscrowInput(w wallet.Wallet,from string, to string,amount float64,Etype int,EKey string,Etime int) EscrowData {
-	var tx EscrowData
-	txd:=new(TransactionData)
-	txd.Timestamp=int(time.Now().Unix())
-	txd.From=from
-	txd.To=to
-	txd.Amount=amount
-	txd.Nonce=100
-	txd.Hash=setHash(strconv.Itoa(txd.Timestamp)+from+to+strconv.FormatFloat(amount,'f',-1,64)+strconv.Itoa(txd.Nonce))
-	txd.Sign=setHash(txd.Hash)
-	//txd.Sign,_=w.Sign(txd.Hash)
-	tx.EscrowTx=*txd
-	tx.EscrowType=Etype
-	tx.EscrowKey=EKey
-	tx.EscrowTime=Etime
-	tx.State=0
-	return tx
-}
-*/

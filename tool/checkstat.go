@@ -11,7 +11,6 @@ import (
 
 var echo=fmt.Println
 var Configure config.Configuration
-//var	addr="CLQUKEdCeWmPzAmyJdHzo9cTBrq2JCBbPC"
 var	addr="CW4dPvQ24RGgMk8NKEj6F1UkYka9sxYTdM"
 var	filepath1="."
 var	filepath2="/data/bdata"
@@ -41,9 +40,7 @@ func init() {
 }
 
 
-
 func main() {
-
 	addr:="CW4dPvQ24RGgMk8NKEj6F1UkYka9sxYTdM"
 	aStatistic:=make(map[string]core.StatisticData)
 	aStatistic[addr]=core.StatisticData{3851,addr,111355.5024,111356.5025,1.0001,111357.5026,304,1,"T"}

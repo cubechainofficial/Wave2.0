@@ -5,6 +5,7 @@ import (
 	"strconv"
 )
 
+
 type Cubing struct {
 	Cubeno		int
 	Timestamp	int

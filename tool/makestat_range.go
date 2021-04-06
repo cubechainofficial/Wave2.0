@@ -33,14 +33,10 @@ func init() {
 			}
 		}
 	}
-
 	gob.Register(&core.TxData{})
 	gob.Register(&core.TxBST{})
 	gob.Register(map[string]string{})
 }
-
-
-
 
 func main() {
 	snum:=12
@@ -56,5 +52,3 @@ func main() {
 
 	core.FileCopy(file0,file2)
 }
-
-

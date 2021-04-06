@@ -26,14 +26,9 @@ func main() {
 	cubedownload(7013);
 }
 
-
 func cubedownload(cubeno int) {
 	var c core.Cube
 	c.Cubeno=cubeno
 	
 	c.Download()
 }
-
-
-
-

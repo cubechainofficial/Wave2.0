@@ -41,11 +41,6 @@ func init() {
 
 
 func main() {
-	//mergename:=[]string{"Statistic_1-10000.cbs","Statistic_10001-20000.cbs","Statistic_20001-30000.cbs","Statistic_30001-40000.cbs","Statistic_40001-50000.cbs","Statistic_50001-60000.cbs","Statistic_60001-70000.cbs","Statistic_70001-80000.cbs","Statistic_80001-90000.cbs","Statistic_90001-100000.cbs"}
-	//filename:="StatisticM_100000.cbs"
-	//mergename:=[]string{"StatisticM_100000.cbs","Statistic_100001-110000.cbs","Statistic_110001-120000.cbs"}
-	//filename:="StatisticM_120000.cbs"
-
 	mergename:=[]string{"StatisticM_120000.cbs","Statistic_120001-130000.cbs"}
 	filename:="Statistic.cbs"
 	

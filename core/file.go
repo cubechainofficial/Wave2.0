@@ -10,6 +10,7 @@ import (
     "io/ioutil"
 )
 
+
 func FilePath(idx int) string {
 	divn:=idx/Configure.Datanumber
 	divm:=idx%Configure.Datanumber

@@ -21,16 +21,13 @@ func init() {
 	gob.Register(map[string]string{})
 }
 
-
 func main() {
 	cubeupload(7013);
 }
 
-
 func cubeupload(cubeno int) {
 	var c core.Cube
 	c.Cubeno=cubeno
-	
 	c.FileBroadcast();
 }
 

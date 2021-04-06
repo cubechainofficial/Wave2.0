@@ -6,6 +6,7 @@ import (
 	"strconv"
 )
 
+
 type Pohr struct {
 	BlockHash	float64
 	CHash		float64
@@ -91,5 +92,3 @@ func PowTx() TxData {
 	}
 	return txd
 }
-
-

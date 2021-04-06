@@ -64,16 +64,11 @@ func (block *Block) Input(cubeno int,blockno int) {
 
 		br:=block.Broadcast()
 		if br==false {
-			//echo ("Cube "+ci+" : Broadcast verify failed.")
 		}
 
-		//if br {
-			block.Save()
-			decho ("save block "+ci)
-			block.MineBroadcast()
-		//} else {
-
-		//}
+		block.Save()
+		decho ("save block "+ci)
+		block.MineBroadcast()
 	}
 	decho (block)
 }
@@ -104,21 +99,18 @@ func (block *Block) Read() error {
 }
 
 func (block *Block) HashString() string {
-	//txd:=hex.EncodeToString(block.Data)
 	txd:=hex.EncodeToString(StrToByte(block.BlockTxString()))
 	toStr:=strconv.Itoa(block.Cubeno)+BlockDelim+strconv.Itoa(block.Blockno)+BlockDelim+strconv.Itoa(block.Timestamp)+BlockDelim+txd+BlockDelim+block.Merkle+BlockDelim+block.PrevHash+BlockDelim+block.PatternHash
 	return toStr
 }
 
 func (block *Block) String() string {
-	//txd:=hex.EncodeToString(block.Data)
 	txd:=hex.EncodeToString(StrToByte(block.BlockTxString()))
 	toStr:=strconv.Itoa(block.Cubeno)+BlockDelim+strconv.Itoa(block.Blockno)+BlockDelim+strconv.Itoa(block.Timestamp)+BlockDelim+txd+BlockDelim+block.Merkle+BlockDelim+block.Hash+BlockDelim+block.PrevHash+BlockDelim+block.PatternHash+BlockDelim+strconv.Itoa(block.Nonce)
 	return toStr
 }
 
 func (block *Block) MineString() string {
-	//txd:=hex.EncodeToString(block.Data)
 	txd:=hex.EncodeToString(StrToByte(block.BlockTxString()))
 	txd=setHash(txd)
 	toStr:=strconv.Itoa(block.Cubeno)+BlockDelim+strconv.Itoa(block.Blockno)+BlockDelim+strconv.Itoa(block.Timestamp)+BlockDelim+txd+BlockDelim+block.Merkle+BlockDelim+block.Hash+BlockDelim+block.PrevHash+BlockDelim+block.PatternHash+BlockDelim+strconv.Itoa(block.Nonce)
@@ -206,8 +198,6 @@ func (block *Block) GetPrevHash0() string {
 	} 
 	return PrvCubing.Hash1[block.Blockno-1]
 }
-
-
 
 func GetPattenHash0(cubeno int,blockno int) string {
 	if cubeno<2 {

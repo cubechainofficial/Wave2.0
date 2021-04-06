@@ -27,28 +27,7 @@ type TxData struct {
 	Datatype	string
 }
 
-/*
-type GenTx struct {
-	From		string
-	To			string
-	Amount		float64
-	Fee			float64
-}
 
-type GenData struct {
-	Blockno		int
-	GenPool		[]GenTx
-}
-
-type GensisData struct {
-	GData		[27]GenData
-}
-*/
-
-func (td *TxData) Set() {
-	// Input
-	// Verify
-}
 
 func (td *TxData) Input(TxStr string) {
 	if len(TxStr)<20 {
@@ -66,7 +45,6 @@ func (td *TxData) Input(TxStr string) {
 }
 
 func (td *TxData) HashString() string {
-	//toStr:=strconv.Itoa(td.Timestamp)+TxDelim+td.From+TxDelim+td.To+TxDelim+strconv.FormatFloat(td.Amount,'f',-1,64)+TxDelim+strconv.FormatFloat(td.Fee,'f',-1,64)+TxDelim+strconv.FormatFloat(td.Tax,'f',-1,64)+TxDelim+td.Sign+TxDelim+strconv.Itoa(td.Nonce)+TxDelim+td.Message+TxDelim+td.Datatype
 	toStr:=td.From+TxDelim+td.To+TxDelim+strconv.FormatFloat(td.Amount,'f',-1,64)+TxDelim+strconv.FormatFloat(td.Fee,'f',-1,64)+TxDelim+strconv.FormatFloat(td.Tax,'f',-1,64)+TxDelim+td.Sign+TxDelim+strconv.Itoa(td.Nonce)+TxDelim+td.Message+TxDelim+td.Datatype
 	return setHash(toStr)
 }
@@ -117,7 +95,6 @@ func (td *TxData) ToByte() []byte {
 
 func ByteToTx(data []byte) TxData {
 	var Tdata TxData
-	//gob.Register(Tdata)
 	decoder:=gob.NewDecoder(bytes.NewReader(data))
 	err:=decoder.Decode(&Tdata)
 	if err != nil {
@@ -303,14 +280,6 @@ func TxpoolToTrTest(TxStr string) (TxBST,MineResult) {
 		mresult.Sumfee=math.Round(mresult.Sumfee*100000000)/100000000
 	}
 	
-	/*
-	txData=pt
-	if mresult.Sumfee>10 { mresult.Sumfee=10 }
-	txData.Fee=mresult.Sumfee
-	txData.Amount=txData.Amount+mresult.Sumfee
-	ph.Val=txData
-	Sumfee+=mresult.Sumfee
-	*/
 	return tbst,mresult
 }
 
@@ -388,14 +357,6 @@ func TxpoolToTr(TxStr string,blockno int) (TxBST,MineResult) {
 		}
 	}
 	
-	/*
-	txData=pt
-	if mresult.Sumfee>10 { mresult.Sumfee=10 }
-	txData.Fee=mresult.Sumfee
-	txData.Amount=txData.Amount+mresult.Sumfee
-	ph.Val=txData
-	Sumfee+=mresult.Sumfee
-	*/
 	return tbst,mresult
 }
 
@@ -405,8 +366,6 @@ func TxpoolToBst00(TxStr string) (TxBST,MineResult) {
 	var mresult MineResult
 
 	tbst.Init()
-	//pt:=PowTx()
-	//ph:=tbst.treeInsertNode(pt,"Poh")
 
 	if strings.Index(TxStr,"|")<0 {
 		return tbst,mresult
@@ -447,14 +406,6 @@ func TxpoolToBst00(TxStr string) (TxBST,MineResult) {
 		}
 	}
 	
-	/*
-	txData=pt
-	if mresult.Sumfee>10 { mresult.Sumfee=10 }
-	txData.Fee=mresult.Sumfee
-	txData.Amount=txData.Amount+mresult.Sumfee
-	ph.Val=txData
-	Sumfee+=mresult.Sumfee
-	*/
 	return tbst,mresult
 }
 

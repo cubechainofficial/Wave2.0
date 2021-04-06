@@ -21,7 +21,6 @@ func init() {
 	gob.Register(map[string]string{})
 }
 
-
 func main() {
 	ch:=core.CubeHeight()
 	echo(ch)
@@ -40,13 +39,3 @@ func main() {
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
-

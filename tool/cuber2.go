@@ -54,11 +54,4 @@ func main() {
 			c.DownloadingRpc2()
 		}
 	}
-
-
 }
-
-
-
-
-

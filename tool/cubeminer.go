@@ -30,7 +30,6 @@ func init() {
 func main() {
 	ch:=core.CubeHeight()
 	ch2:=core.GetCubeHeight3()
-	//ch3,_:=strconv.Atoi(ch2)
 
 	echo(ch)
 	echo(ch2)
@@ -58,23 +57,13 @@ func main() {
 	cubeminer:=strings.Split(strdata, "\n")
 
 	for cubeno:=start;cubeno<=end;cubeno++ {
-		/*
-		if cubeno<103000 {
-			continue
-		}
-		if cubeno%5000==0 {
-			return
-		}
-		*/
 		if cubeno>127746 {
 			return
 		}
-
 		
 		if cubeno%100==0 {
 			echo("****"+strconv.Itoa(cubeno))
 		}
-
 
 		var c core.Cube
 		c.Cubeno=cubeno

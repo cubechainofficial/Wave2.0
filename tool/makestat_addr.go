@@ -39,11 +39,7 @@ func init() {
 	gob.Register(map[string]string{})
 }
 
-
-
-
 func main() {
-	//addr:="CcXFizxhCykQ5M2vuCmTnoK86rJERfyGye"
 	addr:="CW4dPvQ24RGgMk8NKEj6F1UkYka9sxYTdM"
 	core.MakeStatAddr(filepath1,addr) 
 }

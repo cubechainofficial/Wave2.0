@@ -1,8 +1,6 @@
 package core
 
 import (
-//	"fmt"
-
 	"strings"
 	"sync"
 	"strconv"
@@ -12,8 +10,8 @@ import (
 	"bytes"
 	"net/http"
 	"io/ioutil"
-	//"encoding/gob"
 )
+
 
 type Cube struct {
 	Cubeno		int
@@ -174,7 +172,6 @@ func (cube *Cube) Save() error {
 	path:=FilePath(cube.Cubeno)
 	err:=FileWrite(path+filepathSeparator+filename,cube)
 	if err==nil {
-		//var cubing Cubing
 		cube.SetCubing(&PrvCubing)
 		CubingFileWrite(PrvCubing)
 	}
@@ -201,7 +198,6 @@ func (cube *Cube) Download() error {
 func (cube *Cube) FileBroadcast() error {
 	filename:=cube.FileName()
 	path:=FilePath(cube.Cubeno)
-	//file, err := os.Open(path+filepathSeparator+filename)
 	file:=path+filepathSeparator+filename
 
 	extraParams := map[string]string{

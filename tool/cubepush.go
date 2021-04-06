@@ -26,7 +26,6 @@ func main() {
 	ch:=core.CubeHeight()
 
 	for i:=50318;i<=ch-1;i++ {
-	//i:=49900
 		var c core.Cube
 		c.Cubeno=i
 		c.Read()

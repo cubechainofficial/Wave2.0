@@ -45,7 +45,6 @@ func MakeStat(filepath string) {
 	
 	for i:=1;i<ch;i++ {
 		aStatistic=GetStaticData(i,aStatistic)
-		//echo(strconv.Itoa(i)+":",aStatistic[addr])
 	}
 	
 	for k,v := range aStatistic {
@@ -58,7 +57,6 @@ func MakeStat(filepath string) {
 		result+=strconv.Itoa(v.Tkcnt)+","
 		result+=v.Pos
 		bStatistic.AddrIndex[k]=result
-		//echo(k+":"+result)
 	}
 	
 	bStatistic.Cubeno=ch-1
@@ -88,11 +86,7 @@ func MakeStatRange(filepath string,start,end int) {
 	}
 
 	for i:=start;i<=end;i++ {
-		//if i%100==0 {
-		//	echo(i)
-		//}
 		aStatistic=GetStaticData(i,aStatistic)
-		//echo(strconv.Itoa(i)+":",aStatistic[addr])
 	}
 	
 	for k,v := range aStatistic {
@@ -105,7 +99,6 @@ func MakeStatRange(filepath string,start,end int) {
 		result+=strconv.Itoa(v.Tkcnt)+","
 		result+=v.Pos
 		bStatistic.AddrIndex[k]=result
-		//echo(k+":"+result)
 	}
 	
 	bStatistic.Cubeno=end
@@ -192,7 +185,6 @@ func MakeStatAddr(filepath,addr string) {
 		result+=strconv.Itoa(v.Tkcnt)+","
 		result+=v.Pos
 		bStatistic.AddrIndex[k]=result
-		//echo(k+":"+result)
 	}
 	
 	bStatistic.Cubeno=ch-1
@@ -499,7 +491,6 @@ func TAllStatistic(cubeno int) map[string]string {
 		if(aStatistic.Cubeno!=cubeno) {
 			aStatistic.Cubeno=cubeno
 			err:=FileWrite(pathfile,aStatistic)
-			//if err!=nil && cubeno%10000==0 {
 			if err!=nil {
 				pathfile2=path+filepathSeparator+"Statistic_"+strconv.Itoa(cubeno)+".cbs"
 				FileCopy(pathfile,pathfile2)
@@ -640,7 +631,6 @@ func AllStatistic(cubeno int) map[string]string {
 		if(aStatistic.Cubeno!=cubeno) {
 			aStatistic.Cubeno=cubeno
 			err:=FileWrite(pathfile,aStatistic)
-			//if err!=nil && cubeno%10000==0 {
 			if err!=nil {
 				pathfile2=path+filepathSeparator+"Statistic_"+strconv.Itoa(cubeno)+".cbs"
 				FileCopy(pathfile,pathfile2)
@@ -654,9 +644,6 @@ func CubeStatisticAdd(cubeno int,cubeStatistic map[string]string) map[string]str
 	var iData []TxData
 	var statAddr map[string]bool
 	statAddr=make(map[string]bool)
-
-	//var cubeStatistic map[string]string
-	//cubeStatistic=make(map[string]string)
 
 	if cubeno<=0 {
 		return cubeStatistic

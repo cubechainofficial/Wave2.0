@@ -19,6 +19,7 @@ import (
 	"../config"
 )
 
+
 var Configure config.Configuration
 var filepathSeparator=string(filepath.Separator)
 var echo=fmt.Println
@@ -34,7 +35,6 @@ var DebugMode=false
 var SpecialCnt=5
 
 var Version="2.01"
-//var cubechainInfo Cubechain
 var Pratio=Pohr{4.566,4.566,4.566,127.855,54.795}
 var Pratio1=Pohr{4.566,4.566,4.566,127.855,54.795}
 var Pratio2=Pohr{3.913,3.913,3.913,109.590,73.060}
@@ -46,7 +46,6 @@ var Pratio7=Pohr{0.652,0.652,0.652,18.265,164.385}
 var Pratio8=Pohr{0,0,0,0,182.650}
 var Pratio9=Pohr{0,0,0,0,182.650}
 var Pratio10=Pohr{0,0,0,0,182.650}
-//var exAddr=[]string{"CQ7P61JqRV4MDiGLB2muTCAk9GtffrNiuM","CQqvmQrQb4wt9CzEspYSWhTETt5nkRCo7Q","CJPecLvqes1MNs3Lm5nkg8PyUUsV74KVv2","CSNQnY19BkUxG5j4r3p3srFj6QWKqGHe6G","CMz7SUHzmMrXU6dLS9NinQYSr9MSTUNxut","CQLd694b5cRBfSXUXi3yW8CfGtjpvVAqWj"}
 var exAddr=[]string{"CLwaJn7JWtHPC98mUzybn54guuFiKXtqKu","CbFYBk5Sdor5AKonQbpN3fo7J7KXJYSVFS","CUQX229R16k5SmBduqZU8MwUb667xX6i8o","CXBindaHGHpRdyeY7ERc8LRi7e2uvGYTGq","CML2JEtqArxRoGSAb9CvGaadLFwvhFjh3B","Ce7jPeg69UQhNLYcNaJFVxATGm1xJSyoPG","CaYTrJaEUes2MezYJ4kt7BAoKLCVa5jm8q","CN1qmgcmufAwsgDk1JDoF1B2A9Q5HJCPRR","CYvX6pvgcJpoNWDxdhRHrnMkAhSs9hVyvi","CTFqiRtjJErihp61T7oxhuauL8vRD8sVmy"}
 var RepairAddress="CcXFizxhCykQ5M2vuCmTnoK86rJERfyGye"
 var mineExAddr=[]string{"CcXFizxhCykQ5M2vuCmTnoK86rJERfyGye","CcXFizxhCykQ5M2vuCmTnoK86rJERfyGye","CcXFizxhCykQ5M2vuCmTnoK86rJERfyGye","CcXFizxhCykQ5M2vuCmTnoK86rJERfyGye","CcXFizxhCykQ5M2vuCmTnoK86rJERfyGye","CcXFizxhCykQ5M2vuCmTnoK86rJERfyGye","CcXFizxhCykQ5M2vuCmTnoK86rJERfyGye","CMEYDLY8eg8XQ8cGZd7axPCrMV7Z8j49af","CcXFizxhCykQ5M2vuCmTnoK86rJERfyGye","CcXFizxhCykQ5M2vuCmTnoK86rJERfyGye"}
@@ -169,11 +168,6 @@ func IpCheck() []string {
 
 func GetBytes(key interface{}) []byte {
     var buf bytes.Buffer
-	//var Tdata TxData
-	//var Tbst TxBST
-
-	//gob.Register(Tdata)  
-	//gob.Register(Tbst)
 	enc := gob.NewEncoder(&buf)
     err := enc.Encode(key)
     if err != nil {
@@ -217,7 +211,6 @@ func GetCubeHeight3() string {
 }
 
 func CubeHeight() int {
-	//result,_:=strconv.Atoi(GetCubeHeight3())
 	result:=CurrentHeight()
 	return result
 }
@@ -418,27 +411,6 @@ func SpecialSync() {
 	echo(e2)
 }
 
-
-/*
-func GetTxCount(addr string) int {
-	c,count:=0,0
-	var block Block
-	if c<=0 {
-		c=CurrentHeight()-1
-	}
-	for i:=0;i<c;i++ {
-		mblock.Index=i
-		err:=block.Read()
-		Err(err,0)
-		if(Block.Data.From==addr) {
-			count++
-		}
-	}
-	return count
-}
-
-*/
-
 func newfileUploadRequest(uri string, params map[string]string, paramName, path string) (*http.Request, error) {
 	file, err := os.Open(path)
 	if err != nil {
@@ -466,10 +438,6 @@ func newfileUploadRequest(uri string, params map[string]string, paramName, path 
 
 
 func NodeSend(cmode string,data string) string {
-	
-	//return NodeCube(cmode,data)
-
-	
 	arr:=IpCheck()
 	reader:=strings.NewReader("cmode="+cmode+"&_token=9X1rK2Z2sofIeFpqg6VBXI5aUWsPOfGPGyzzztgu&data="+data+"&mac="+arr[0]+"&ip="+arr[1]+"&hostname="+arr[2]+"&netname="+Configure.Network+"&netset="+Configure.Nettype+"&chaintype="+Configure.Chaintype+"&netport="+strconv.Itoa(Configure.Port)+"&ver="+Version)
 	request,_:=http.NewRequest("POST","http://"+Configure.MainServer+"/"+cmode, reader)
@@ -520,7 +488,6 @@ func NodeCube(cmode string,data string) string {
 func CubeDownload(cubeno int) string {
 	decho("Download file")
 	cubenum:=strconv.Itoa(cubeno)
-	//filename:="test"+cubenum
     fileUrl:="http://"+Configure.PosServer+"/download/"+cubenum
     filepath,err := DownloadFile(FilePath(cubeno)+filepathSeparator, fileUrl)
     if err != nil {
@@ -545,8 +512,6 @@ func CubeDownloadFile(cubeno int) string {
 
 func CubeDownloadFrom(cubeno int,ip string,hash string) string {
 	decho("Download file")
-	//cubeno:=strconv.Itoa(cubeno)
-	//filename:="test"+cubenum
     fileUrl:="http://"+ip+":"+strconv.Itoa(Configure.Httpport)+"/download?cubeno="+strconv.Itoa(cubeno)
 	echo (fileUrl)
     downpath:=FilePath(cubeno)+filepathSeparator
@@ -698,7 +663,6 @@ func CheckConfirm(cubeno int) bool {
 	}
 }
 
-
 func RepairFile(cubeno int,str string) {
 	cpath:=FilePath(cubeno)
 	path:=cpath+filepathSeparator
@@ -712,8 +676,6 @@ func CompleteFile(cubeno int,str string) {
 	filename:="complete_"+strconv.Itoa(cubeno)
 	FileLog(path,filename,str)
 }
-
-
 
 func decho(v interface{}) {
 	if DebugMode {

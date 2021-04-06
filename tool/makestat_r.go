@@ -40,9 +40,6 @@ func init() {
 	gob.Register(map[string]string{})
 }
 
-
-
-
 func main() {
 	ssnum:=os.Args[1]
 	snum,_:=strconv.Atoi(ssnum)
