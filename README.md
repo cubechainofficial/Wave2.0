@@ -3,14 +3,20 @@
 ## Cubechain Mainnet version 2.0
 
 
+1. Total Supply : 50% reduction
+   12 billion QUB → 6 billion QUB
+
+2. POH change
+   POW + POS  → POW + SPOS + NPOS
+   Ratio: change every 5 years → fixed
+3. Directional
+   Change: Extending its own service as a platform to talk, broadcast, Online shopping mall
 
 
+
+## Features of CubeChain
 
 27 blocks into a cube, the new blockchain platform
-
-Features of CubeChain 
- 
-
 
 1. Cubing 
 
